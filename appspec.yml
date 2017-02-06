@@ -1,0 +1,16 @@
+version: 0.0
+os: linux
+files:
+   - source: /
+     destination: /home/ec2-user/spring-petclinic
+permissions:
+   - object: /home/ec2-user/spring-petclinic
+     pattern: "**"
+     mode: 755
+     type:
+       - file     
+hooks:
+   AfterInstall:
+     - location: Scripts/RunApp.sh
+       runas: root
+       timeout: 380
